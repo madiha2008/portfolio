@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J Madiha Firdous - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Comic+Neue:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Floating Decorations -->
+    <div class="floating-decorations">
+        <div class="star star-1">⭐</div>
+        <div class="star star-2">✨</div>
+        <div class="star star-3">🌟</div>
+        <div class="cloud cloud-1">☁️</div>
+        <div class="cloud cloud-2">☁️</div>
+        <div class="heart heart-1">💖</div>
+        <div class="heart heart-2">💗</div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <span class="brand-emoji">🎀</span>
+            <span>Madiha</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">🏠 Home</a></li>
+            <li><a href="#about">👩‍💻 About</a></li>
+            <li><a href="#skills">⚡ Skills</a></li>
+            <li><a href="#projects">🚀 Projects</a></li>
+            <li><a href="#education">🎓 Education</a></li>
+            <li><a href="#contact">💌 Contact</a></li>
+        </ul>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero">
+        <div class="hero-bubbles">
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+        </div>
+        <div class="hero-content">
+            <div class="profile-container">
+                <div class="profile-ring">
+                    <div class="ring-sparkle"></div>
+                </div>
+                <img src="images/madiha.jpg" alt="J Madiha Firdous" class="profile-img" onerror="this.src='https://api.dicebear.com/7.x/avataaars/svg?seed=Madiha&backgroundColor=ffdfbf'">
+                <div class="profile-badge">🎀</div>
+            </div>
+            <h1 class="hero-title">
+                <span class="greeting">✨ Hello, I'm ✨</span>
+                <span class="name" id="heroName">J Madiha Firdous</span>
+            </h1>
+            <p class="hero-subtitle" id="heroTitle">BCA Student | Aspiring Web Developer</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary cartoon-btn">
+                    <span class="btn-emoji">💌</span> Get in Touch
+                </a>
+                <a href="#about" class="btn btn-secondary cartoon-btn">
+                    <span class="btn-emoji">🌸</span> Know More
+                </a>
+            </div>
+            <div class="visitor-count">
+                <div class="visitor-icon">👀</div>
+                <span id="visitorCount">0</span> Happy Visitors!
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">🖱️</div>
+            <span>Scroll Down ⬇️</span>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="section about-section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-emoji">🌸</span>
+                About Me
+                <span class="title-emoji">🌸</span>
+            </h2>
+            <div class="about-content">
+                <div class="about-card cartoon-card">
+                    <div class="card-corner corner-tl">🎀</div>
+                    <div class="card-corner corner-tr">⭐</div>
+                    <div class="card-corner corner-bl">💖</div>
+                    <div class="card-corner corner-br">✨</div>
+                    <p class="about-text" id="aboutText">
+                        I am a passionate <strong>BCA student</strong> with a deep interest in 
+                        <strong>programming</strong> and <strong>web development</strong>. 
+                        I love exploring new technologies and building creative solutions.
+                        My journey in tech started with curiosity, and now I'm on a mission to become 
+                        a skilled web developer. I believe in continuous learning and pushing boundaries.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-emoji">🚀</span>
+                            <span class="stat-number">3+</span>
+                            <span class="stat-label">Projects</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-emoji">💻</span>
+                            <span class="stat-number">4+</span>
+                            <span class="stat-label">Technologies</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-emoji">💖</span>
+                            <span class="stat-number">∞</span>
+                            <span class="stat-label">Passion</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section skills-section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-emoji">⚡</span>
+                My Skills
+                <span class="title-emoji">⚡</span>
+            </h2>
+            <div class="skills-grid" id="skillsGrid">
+                <!-- Skills loaded from backend -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section projects-section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-emoji">🚀</span>
+                My Projects
+                <span class="title-emoji">🚀</span>
+            </h2>
+            <div class="projects-grid" id="projectsGrid">
+                <!-- Projects loaded from backend -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section education-section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-emoji">🎓</span>
+                Education
+                <span class="title-emoji">🎓</span>
+            </h2>
+            <div class="education-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot">📚</div>
+                    <div class="timeline-content">
+                        <div class="education-card cartoon-card">
+                            <div class="edu-icon">🎓</div>
+                            <div class="edu-details">
+                                <h3>Bachelor of Computer Applications (BCA)</h3>
+                                <p class="edu-status">✨ Currently Pursuing ✨</p>
+                                <p class="edu-desc">Studying computer science fundamentals, programming languages, database management, and web technologies.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-emoji">💌</span>
+                Contact Me
+                <span class="title-emoji">💌</span>
+            </h2>
+            <div class="contact-wrapper">
+                <div class="contact-info cartoon-card">
+                    <h3>🌈 Let's Connect! 🌈</h3>
+                    <p>Feel free to reach out for opportunities or just to say hello!</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <div class="contact-text">
+                                <span class="label">Email</span>
+                                <a href="mailto:madiha13052008@gmail.com" id="contactEmail">madiha13052008@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📱</div>
+                            <div class="contact-text">
+                                <span class="label">Phone</span>
+                                <a href="tel:9177702367" id="contactPhone">9177702367</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-container cartoon-card">
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <span class="input-emoji">👤</span>
+                            <input type="text" id="name" name="name" required placeholder="Your Name">
+                        </div>
+                        <div class="form-group">
+                            <span class="input-emoji">📧</span>
+                            <input type="email" id="email" name="email" required placeholder="Your Email">
+                        </div>
+                        <div class="form-group">
+                            <span class="input-emoji">💬</span>
+                            <textarea id="message" name="message" rows="4" required placeholder="Your Message"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-submit cartoon-btn">
+                            <span>Send Message</span>
+                            <span class="btn-emoji">🚀</span>
+                        </button>
+                    </form>
+                    <div id="formMessage" class="form-message"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span class="footer-emoji">🎀</span>
+                Madiha Firdous
+                <span class="footer-emoji">🎀</span>
+            </div>
+            <p class="footer-text">Creating digital experiences with passion ✨</p>
+            <div class="footer-divider">
+                <span>💖</span><span>💖</span><span>💖</span>
+            </div>
+            <p class="copyright">© 2026 J Madiha Firdous | Made with 💖</p>
+        </div>
+    </footer>
+
+    <button id="backToTop" class="back-to-top">⬆️</button>
+    <script src="script.js"></script>
+</body>
+</html>

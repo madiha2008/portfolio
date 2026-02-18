@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Madiha's Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-pink: #ff6b9d;
+            --primary-purple: #c44dff;
+            --primary-blue: #4dc3ff;
+            --primary-green: #6bcb77;
+            --primary-yellow: #ffd93d;
+            --bg-gradient: linear-gradient(135deg, #fff5f8 0%, #f0e6ff 50%, #e6f4ff 100%);
+            --font-fun: 'Bubblegum Sans', cursive;
+            --font-body: 'Poppins', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-gradient);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .admin-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .admin-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 25px;
+            border: 3px solid var(--primary-pink);
+            box-shadow: 8px 8px 0 #ffb6c1;
+        }
+
+        .admin-header h1 {
+            font-family: var(--font-fun);
+            font-size: 2.5rem;
+            color: var(--primary-purple);
+            margin-bottom: 0.5rem;
+        }
+
+        .admin-header p {
+            color: #666;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1.5rem;
+            background: var(--primary-pink);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-family: var(--font-fun);
+            transition: all 0.3s;
+        }
+
+        .back-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 107, 157, 0.4);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 20px;
+            text-align: center;
+            border: 3px solid var(--primary-blue);
+            box-shadow: 5px 5px 0 rgba(77, 195, 255, 0.3);
+        }
+
+        .stat-card .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card .number {
+            font-family: var(--font-fun);
+            font-size: 2rem;
+            color: var(--primary-purple);
+        }
+
+        .stat-card .label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .section-title {
+            font-family: var(--font-fun);
+            font-size: 1.8rem;
+            color: var(--primary-purple);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .messages-container {
+            background: white;
+            border-radius: 25px;
+            padding: 2rem;
+            border: 3px solid var(--primary-yellow);
+            box-shadow: 8px 8px 0 rgba(255, 217, 61, 0.4);
+        }
+
+        .message-card {
+            background: #fafafa;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-left: 5px solid var(--primary-pink);
+            transition: all 0.3s;
+        }
+
+        .message-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .message-card.unread {
+            border-left-color: var(--primary-purple);
+            background: #fff5f8;
+        }
+
+        .message-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .message-sender {
+            font-weight: 600;
+            color: var(--primary-purple);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .message-email {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .message-date {
+            color: #999;
+            font-size: 0.85rem;
+        }
+
+        .message-content {
+            color: #444;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 10px;
+        }
+
+        .message-actions {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 20px;
+            font-family: var(--font-fun);
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-read {
+            background: var(--primary-green);
+            color: white;
+        }
+
+        .btn-delete {
+            background: var(--primary-pink);
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .badge-unread {
+            background: var(--primary-purple);
+            color: white;
+        }
+
+        .badge-read {
+            background: #ddd;
+            color: #666;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: #999;
+        }
+
+        .empty-state .emoji {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            font-family: var(--font-fun);
+            color: var(--primary-pink);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            .admin-header h1 {
+                font-size: 2rem;
+            }
+
+            .message-header {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <header class="admin-header">
+            <h1>👑 Admin Panel</h1>
+            <p>Manage your portfolio messages and data</p>
+            <a href="/" class="back-link">🏠 Back to Portfolio</a>
+        </header>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="emoji">💌</div>
+                <div class="number" id="totalMessages">0</div>
+                <div class="label">Total Messages</div>
+            </div>
+            <div class="stat-card">
+                <div class="emoji">📬</div>
+                <div class="number" id="unreadMessages">0</div>
+                <div class="label">Unread</div>
+            </div>
+            <div class="stat-card">
+                <div class="emoji">👀</div>
+                <div class="number" id="visitorCount">0</div>
+                <div class="label">Visitors</div>
+            </div>
+        </div>
+
+        <div class="messages-container">
+            <h2 class="section-title">💌 Messages</h2>
+            <div id="messagesList">
+                <div class="loading">🌸 Loading messages... 🌸</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = 'http://localhost:5001/api';
+
+        // Load data on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            loadMessages();
+            loadVisitors();
+        });
+
+        // Load Messages
+        async function loadMessages() {
+            try {
+                const response = await fetch(`${API_BASE}/messages`);
+                const messages = await response.json();
+                renderMessages(messages);
+                updateStats(messages);
+            } catch (error) {
+                document.getElementById('messagesList').innerHTML = `
+                    <div class="empty-state">
+                        <div class="emoji">😢</div>
+                        <p>Could not load messages. Make sure the server is running!</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Render Messages
+        function renderMessages(messages) {
+            const container = document.getElementById('messagesList');
+            
+            if (messages.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="emoji">📭</div>
+                        <p>No messages yet! Share your portfolio to get some! 🎉</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = messages.map(msg => `
+                <div class="message-card ${msg.is_read ? '' : 'unread'}" data-id="${msg.id}">
+                    <div class="message-header">
+                        <div>
+                            <div class="message-sender">
+                                👤 ${escapeHtml(msg.name)}
+                                <span class="badge ${msg.is_read ? 'badge-read' : 'badge-unread'}">
+                                    ${msg.is_read ? '✓ Read' : '● New'}
+                                </span>
+                            </div>
+                            <div class="message-email">📧 ${escapeHtml(msg.email)}</div>
+                        </div>
+                        <div class="message-date">📅 ${formatDate(msg.created_at)}</div>
+                    </div>
+                    <div class="message-content">${escapeHtml(msg.message)}</div>
+                    <div class="message-actions">
+                        ${!msg.is_read ? `
+                            <button class="btn btn-read" onclick="markAsRead(${msg.id})">
+                                ✓ Mark as Read
+                            </button>
+                        ` : ''}
+                        <button class="btn btn-delete" onclick="deleteMessage(${msg.id})">
+                            🗑 Delete
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Update Stats
+        function updateStats(messages) {
+            document.getElementById('totalMessages').textContent = messages.length;
+            document.getElementById('unreadMessages').textContent = 
+                messages.filter(m => !m.is_read).length;
+        }
+
+        // Load Visitors
+        async function loadVisitors() {
+            try {
+                const response = await fetch(`${API_BASE}/visitors`);
+                const data = await response.json();
+                document.getElementById('visitorCount').textContent = data.count;
+            } catch (error) {
+                document.getElementById('visitorCount').textContent = '?';
+            }
+        }
+
+        // Mark as Read
+        async function markAsRead(id) {
+            try {
+                await fetch(`${API_BASE}/messages/${id}/read`, { method: 'PUT' });
+                loadMessages();
+            } catch (error) {
+                alert('Could not mark message as read');
+            }
+        }
+
+        // Delete Message
+        async function deleteMessage(id) {
+            if (!confirm('Are you sure you want to delete this message? 🗑')) return;
+            
+            try {
+                await fetch(`${API_BASE}/messages/${id}`, { method: 'DELETE' });
+                loadMessages();
+            } catch (error) {
+                alert('Could not delete message');
+            }
+        }
+
+        // Utility Functions
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+        }
+    </script>
+</body>
+</html>
